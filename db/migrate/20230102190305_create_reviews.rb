@@ -1,10 +1,15 @@
 class CreateReviews < ActiveRecord::Migration[7.0]
   def change
     create_table :reviews do |t|
-      t.string :content
-      t.integer :stars
-      t.integer :user_id
-      t.integer :property_id
+      t.integer :reviewer_id, null: false, index: true
+      t.integer :listing_id, null: false, index: true
+      t.text :message, null: false
+      t.integer :cleanliness, null: false
+      t.integer :accuracy, null: false
+      t.integer :communication, null: false
+      t.integer :check_in, null: false
+      t.integer :value, null: false
+      t.integer :location, null: false
       t.timestamps
     end
   end
